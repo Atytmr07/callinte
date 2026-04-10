@@ -157,23 +157,24 @@ export function GlobePulse({
             {markers.map((m) => (
                 <div
                     key={m.id}
-                    style={{
-                        position: "absolute",
-                        // @ts-expect-error CSS Anchor Positioning
-                        positionAnchor: `--cobe-${m.id}`,
-                        bottom: "anchor(center)",
-                        left: "anchor(center)",
-                        translate: "-50% 50%",
-                        width: 40,
-                        height: 40,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        pointerEvents: "none" as const,
-                        opacity: `var(--cobe-visible-${m.id}, 0)`,
-                        filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 8px))`,
-                        transition: "opacity 0.4s, filter 0.4s",
-                    }}
+                    style={
+                        {
+                            position: "absolute",
+                            positionAnchor: `--cobe-${m.id}`,
+                            bottom: "anchor(center)",
+                            left: "anchor(center)",
+                            translate: "-50% 50%",
+                            width: 40,
+                            height: 40,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            pointerEvents: "none" as const,
+                            opacity: `var(--cobe-visible-${m.id}, 0)`,
+                            filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 8px))`,
+                            transition: "opacity 0.4s, filter 0.4s",
+                        } as any
+                    }
                 >
                     <span
                         style={{
